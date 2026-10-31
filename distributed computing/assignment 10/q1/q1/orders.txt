@@ -1,0 +1,31 @@
+ο ρολος τουε πελατη ειναι να στελνει το n που θελει στον server
+για να το κανω αυτο χρειαζεται να τροποποιησω το πρωτοκολλο του πελατη ωστε να ζηταει απο τον χρηστη το n 
+
+κανω μια αλλαγη στον client γιατι θελουμε παντα να ρωταει τον χρηστη για το n
+αλλαζω το:
+int iters = 10000;
+		for (int i = 0; i < iters; i++)  {
+	        outmsg = app.prepareRequest();
+			out.println(outmsg);
+			inmsg = in.readLine();
+			app.processReply(inmsg);
+		}
+		outmsg = app.prepareExit();
+		out.println(outmsg);
+		//inmsg = in.readLine();
+	    //app.processReply(inmsg);
+		
+		dataSocket.close();
+
+με:
+outmsg = app.prepareRequest();
+        while(!outmsg.equals(EXIT)) {
+            out.println(outmsg);
+            inmsg = in.readLine();
+            app.processReply(inmsg);
+            outmsg = app.prepareRequest();
+        }
+        out.println(outmsg);
+        dataSocket.close();
+
+μετα απο το serverProtocol αλλαζω το processRequest και προσθετω εκει την λειτουργικοτητα

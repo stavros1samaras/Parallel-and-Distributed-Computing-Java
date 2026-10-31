@@ -1,0 +1,5 @@
+P = 12, entry = 1000000000
+
+cyclic 14512ms
+static  14466ms
+dynamic  37811ms

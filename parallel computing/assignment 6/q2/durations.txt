@@ -1,0 +1,12 @@
+
+
+Q2:
+    sequencial:
+            time in ms = 333 for "tacccagattatcgccatcaacgg"
+    parallel:
+            time in ms = 130 for "tacccagattatcgccatcaacgg"
+        
+
+
+        
+

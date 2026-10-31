@@ -1,0 +1,11 @@
+NumIntPar:
+    20: 3,433000 seconds
+    200: 0,164000 seconds
+    500: 0,103000 seconds
+    1000: 0,062000 seconds
+
+NumIntParFull:
+    20: 12,050000 seconds ---> πολυ μεγαλο context switch
+    200: 0,246000 seconds
+    500: 0,132000 seconds
+    1000: 0,075000 seconds

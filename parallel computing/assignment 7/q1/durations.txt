@@ -1,0 +1,4 @@
+P = 12
+
+StringHistogramParArray 59ms
+StringHistogramParLock 108ms

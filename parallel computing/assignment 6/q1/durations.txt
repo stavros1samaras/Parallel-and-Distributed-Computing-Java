@@ -1,0 +1,56 @@
+
+
+Q1:
+    sequencial:
+            1 million = 0,009000 s  ----> clear win
+            10 million = 0,055000 s
+            100 million = 0,509000 s
+            1 billion = 5,013000 s
+    parallel:
+        NoLocksWithGetter:
+            1 million = 0,046000 s
+            10 millions = 0,050000 s
+            100 millions = 0,109000 s
+            1 billions = 0,551000 s
+            10 billions = 5,446000 s  
+            20 billions = 10,532000 s
+            30 billions = 15,555000 s
+
+        NoLocksWithTree
+            1 million = 0,060000 s
+            10 millions = 0,067000 s
+            100 millions = 0,130000 s
+            1 billions =  0,764000 s
+            10 billions = 7,121000 s
+            20 billions = 14,139000 s
+        
+        ReentrantLocks:
+            1 million = 0,046000 s
+            10 millions = 0,049000 s  
+            100 millions = 0,095000 s  
+            1 billions = 0,547000 s  
+            10 billions = 5,636000 s 
+            20 billions = 10,242000 s
+            30 billions = 15,618000 s
+        
+        ReentrantLockWrong
+            1 million = 0,071000 s
+            10 millions = 0,300000 s
+            100 millions = 2,650000 s
+            1 billions =  25,388000 s
+
+
+Για τιμες <1m το sequencial κερδιζει λογο του context switch
+
+Για μικρο αριθμο threads (πχ 8 οπως εγω) τα NoLocksWithGetter και ReentrantLocks βρισκονται κοντα ακομα και για μεγαλες τιμες (πχ 30b)
+
+To NoLocksWithTree πιστευω οτι θα κερδισει οταν εχουμε μεγαλο αριθμο απο threads και αυτο γιατι  ειναι το μονο που κανει πραγματικα παραλληλο μαζεμα. 
+Το main thread εχει ενα οριο στην ταχυτητα του αρα το NoLocksWithGetter θα εχει bottleneck απο εκει. 
+Οσο αφορα το ReentrantLocks θα εχουμε πολλα threads να ανταγωνιζονται για μια μεταβλητη και καποια στιγμη θα δημιουργηθει και εκει bottleneck
+
+
+
+
+
+        
+
